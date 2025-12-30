@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>React Click Event with Heading and Marquee</title>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    h2 {
+      text-align: center;
+      color: #34495e;
+    }
+
+    marquee {
+      background-color: #ffeb3b;
+      padding: 10px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .click-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .click-btn {
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .click-btn:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Heading -->
+  <h1>React Click Event Example</h1>
+  <h2>Single HTML File Implementation</h2>
+
+  <!-- Marquee -->
+  <marquee behavior="scroll" direction="left">
+    Welcome to React Basics! Click the button below to see the click event in action.
+  </marquee>
+
+  <!-- React Root -->
+  <div id="root"></div>
+
+  <!-- React Script -->
+  <script type="text/babel">
+    function ClickEvent() {
+      const [message, setMessage] = React.useState("");
+
+      const handleClick = () => {
+        setMessage("Button Clicked Successfully!");
+        alert("You clicked the button!");
+      };
+
+      return (
+        <div className="click-container">
+          <button className="click-btn" onClick={handleClick}>
+            Click Me
+          </button>
+          {message && <p className="message">{message}</p>}
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<ClickEvent />);
+  </script>
+
+</body>
+</html>
